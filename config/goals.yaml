@@ -1,0 +1,16 @@
+# Placeholder destination for CoHAN's Bayesian goal predictor (agent_path_predict).
+# Not real candidate destinations — and real destinations aren't knowable in a
+# general deployment anyway, which is consistent with the constant-velocity
+# prediction mode actually being used (the active behavior tree,
+# hateb_local_planner/behavior_trees/all_modes.xml, always requests
+# const_vel/VELOCITY_OBSTACLE prediction, never PREDICTED_GOAL, so this list is
+# never actually consulted at runtime).
+# Required anyway: an empty/missing goals_file makes agent_path_predict
+# segfault on the first tracked-agent callback (predict_goal.hpp's
+# BayesianGoalPrediction::predictGoal() does an unchecked goal_names_[max_prob]
+# on an empty vector) — see kiro_nav docs for details. A single placeholder
+# entry keeps that vector non-empty without pretending to know real pedestrian
+# destinations.
+window_size: 10
+goals:
+  - {name: placeholder, goal: [0.0, 0.0]}

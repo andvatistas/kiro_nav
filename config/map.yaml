@@ -1,0 +1,11 @@
+# Placeholder. This container does not run nav2_map_server (it's commented out
+# in launch/cohan_nav2.launch.py -- the map is expected to come from the
+# robot's own localization stack on /map). launch.sh only checks
+# that this file exists; its content is never read. Replace with a real
+# map.yaml + .pgm only if you re-enable map_server for a standalone test.
+image: placeholder.pgm
+resolution: 0.05
+origin: [0.0, 0.0, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.25

@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  cohan_nav2:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: cohan_nav2:latest
+
+    network_mode: host
+
+    environment:
+      - RMW_IMPLEMENTATION
+      - ROS_DISCOVERY_SERVER
+      - ROS_SUPER_CLIENT
+      - PARAMS_FILE=${PARAMS_FILE:-/config/nav_cohan.yaml}
+      - MAP_FILE=${MAP_FILE:-/config/map.yaml}
+      - USE_SIM_TIME=${USE_SIM_TIME:-false}
+
+    volumes:
+      - ../config:/config:ro
+      - ../launch:/launch:ro
+
+    command: >
+      bash /launch/launch.sh
+      ${PARAMS_FILE:-/config/nav_cohan.yaml}
+      ${MAP_FILE:-/config/map.yaml}
+      ${USE_SIM_TIME:-false}
+
+    restart: unless-stopped
+
+    stdin_open: true
+    tty: true
