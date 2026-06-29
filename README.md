@@ -56,7 +56,7 @@ Screenshots from the real IKH deployment:
 <tr>
 <td align="center"><img src="media/screenshots/global_costmap_warehouse.png" width="250" alt="Global costmap"/><br/><em>Global costmap — robot footprint in the warehouse</em></td>
 <td align="center"><img src="media/screenshots/local_costmap_social_zone.png" width="250" alt="Social cost zone"/><br/><em>Local costmap — social-cost zone around a tracked worker, plan routing around it</em></td>
-<td align="center"><img src="media/screenshots/robot_at_ikh.png" width="250" alt="Robot at IKH"/><br/><em>The physical robot on the IKH shop floor</em></td>
+<td align="center"><img src="media/screenshots/robot_at_ikh.png" width="250" alt="Robot at IKH"/><br/><em>The physical robot on the IKH premises</em></td>
 </tr>
 </table>
 
