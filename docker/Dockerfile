@@ -8,6 +8,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 SHELL ["/bin/bash", "-c"]
 
+RUN find /etc/apt/sources.list.d/ -name "*.list" -exec grep -l "vulcanexus" {} \; | xargs -r rm -f && \
+    find /etc/apt/sources.list.d/ -name "*.sources" -exec grep -l "vulcanexus" {} \; | xargs -r rm -f && \
+    sed -i '/vulcanexus/d' /etc/apt/sources.list 2>/dev/null || true
+
 RUN apt-get update && apt-get install -y \
     wget git bash-completion build-essential sudo nano \
     python3-vcstool python3-rosdep python3-colcon-common-extensions python3-pip \
