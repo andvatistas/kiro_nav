@@ -13,7 +13,7 @@ Reproduces the two-container demo verified during the ARISE D4 restructuring wor
 
 - Clone the companion repo using the command:
   ```
-  git clone https://github.com/andvatistas/pmb2_hunav_simulation.git
+  git clone -b main https://github.com/andvatistas/pmb2_hunav_simulation.git
   ```
 
 ## Quick path: run_demo.sh
@@ -21,6 +21,7 @@ Reproduces the two-container demo verified during the ARISE D4 restructuring wor
 `./run_demo.sh` runs the whole demo below in one command (start the simulation, start `kiro_nav`, send a nav goal). It also works step-by-step — useful for retrying a single step or inspecting the system in between:
 
 ```bash
+# From inside the /examples folder
 ./run_demo.sh sim     # start the simulation container
 ./run_demo.sh nav     # start kiro_nav, pointed at the simulation
 ./run_demo.sh goal    # send a navigate_to_pose goal
@@ -29,6 +30,14 @@ Reproduces the two-container demo verified during the ARISE D4 restructuring wor
 
 Run `./run_demo.sh --help` for all options (including `--no-build` for fast repeat runs, and `SIM_REPO_DIR`/`GOAL_X`/`GOAL_Y` env overrides). This script is recommended. The rest of this document is the fully-manual, raw-command walkthrough that `run_demo.sh` automates — use it if you want to see or control every step directly.
 
+## Visualization
+<table>
+<tr>
+<td align="center"><img src="../media/screenshots/gazebo-sim.png" width="250" alt="Gazebo simulation environment"/><br/><em>Gazebo simulation environment for robot testing.</em></td>
+<td align="center"><img src="../media/screenshots/rviz-sim-human.png" width="250" alt="RViz human tracking social costmap"/><br/><em>Human tracking with a dedicated social costmap layer (pink color).</em></td>
+<td align="center"><img src="../media/screenshots/rviz-sim-moving.png" width="250" alt="Robot navigating socially"/><br/><em>Real-time social navigation and obstacle avoidance.</em></td>
+</tr>
+</table>
 
 ## 1. Start the simulation container
 
